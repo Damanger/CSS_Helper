@@ -156,21 +156,19 @@
     text-align: left;
     flex-grow: 1;
     box-sizing: border-box;
-    padding: 10px;
-    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .codeMirror {
-    width: 100%;
-    border: 1px solid #ddd;
+    width: 100%; 
+    height: fit-content;
+    max-height: 300px;
     font-family: 'Fira Code', monospace;
     font-size: 0.9rem;
     text-align: left;
     line-height: 1.5;
-    padding: 10px;
     margin: 0;
     box-sizing: border-box;
 }
@@ -226,6 +224,12 @@
         margin-bottom: 0;
     }
     .codeMirror{
-        width: calc(100% - 58rem);
+        width: calc(100% - 55rem);
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .codeMirror{
+        width: calc(100% - 60rem);
     }
 }
