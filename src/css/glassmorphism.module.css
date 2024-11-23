@@ -1,0 +1,231 @@
+.outerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #06091c; 
+    color: white;
+}
+
+.outerContainer h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 70vh;
+}
+
+.glassBoxVertical {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    color: white;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    height: 30%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    flex-wrap: wrap;
+}
+
+.glassBoxVertical > * {
+    flex-shrink: 0;
+}
+
+.backgroundInput{
+    width: 12rem;
+    height: 6rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.backgroundInput:last-child {
+    margin-right: 1rem;
+}
+
+.horizontalContainer {
+    display: flex;
+    justify-content: space-between; 
+    gap: 20px;
+    width: 100%;
+    height: 70%;
+    box-sizing: border-box;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.glassBoxHorizontal {
+    padding: 20px;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    color: white;
+    text-align: center;
+    width: calc(50% - 0.75rem);
+    max-width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.backgroundCard{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 25rem;
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.card {
+    width: 190px;
+    height: 254px;
+    margin: 0 auto;
+    z-index: 1;
+    border-radius: 25px;
+}
+
+.tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+}
+
+.circle {
+    padding: 0 4px;
+}
+
+.redBox, .yellowBox, .greenBox {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+}
+
+.redBox {
+    background-color: #ff605c;
+}
+
+.yellowBox {
+    background-color: #ffbd44;
+}
+
+.greenBox {
+    background-color: #00ca4e;
+}
+
+.codeSection {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    text-align: left;
+    flex-grow: 1;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.codeMirror {
+    width: 100%;
+    border: 1px solid #ddd;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    text-align: left;
+    line-height: 1.5;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+    .glassBoxVertical {
+        overflow-x: auto;
+    }
+    .backgroundInput:last-child {
+        margin-right: 1rem;
+    }
+    .horizontalContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        place-items: center;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+    }
+    .glassBoxHorizontal {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    .codeMirror{
+        width: calc(100% - 30rem);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .backgroundInput:nth-child(5), .backgroundInput:nth-child(6) {
+        margin-bottom: 1rem;
+    }
+    .glassBoxHorizontal {
+        width: 90%;
+        max-width: 90%;
+    }
+    .backgroundCard {
+        width: 20rem;
+        height: 20rem;
+    }
+    .card {
+        width: 150px;
+        height: 204px;
+    }
+    .codeMirror{
+        width: calc(100% - 40rem);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .backgroundInput:nth-child(5) {
+        margin-bottom: 0;
+    }
+    .codeMirror{
+        width: calc(100% - 58rem);
+    }
+}
