@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { EditorState } from "@codemirror/state";
 import CodeMirror from "@uiw/react-codemirror";
 import { dracula } from '@uiw/codemirror-theme-dracula';
 import { html } from "@codemirror/lang-html";
+import { FaClipboard } from 'react-icons/fa';
 import Style from '../css/glassmorphism.module.css';
 
 const Glassmorphism = () => {
@@ -69,6 +70,14 @@ const Glassmorphism = () => {
 </div>`;
         setCode(updatedCode);
     }, [blur, opacity, saturation, color, color2, color3, backgroundType, backgroundUrl]);
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(code).then(() => {
+            alert("¡Código copiado!");
+        }).catch((err) => {
+            alert("Error al copiar el código: " + err);
+        });
+    };
 
     return (
         <div className={Style.outerContainer}>
@@ -206,7 +215,20 @@ const Glassmorphism = () => {
                         </div>
                     </div>
                     <div className={Style.glassBoxHorizontal}>
-                        <h2>HTML</h2>
+                        <h2>HTML 
+                            <button 
+                                onClick={copyToClipboard} 
+                                style={{ 
+                                    marginLeft: '10px', 
+                                    background: 'black',
+                                    border: '1px solid white',
+                                    borderRadius: '25px', 
+                                    cursor: 'pointer',
+                                    color: 'white',
+                                }}>
+                                <FaClipboard size={20} />
+                            </button>
+                        </h2>
                         <div className={Style.codeSection}>
                             <CodeMirror
                                 value={code}
